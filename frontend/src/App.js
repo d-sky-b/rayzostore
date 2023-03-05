@@ -21,9 +21,13 @@ import ProductEditScreen from "./screens/ProductEditScreen";
 import OrderListScreen from "./screens/OrderListScreen";
 
 /* REACT ROUTER */
+
 import { HashRouter as Router, Route } from "react-router-dom";
+import axios from "axios";
+
 
 function App() {
+  axios.defaults.baseURL=process.env.REACT_APP_API_URL
   return (
     <Router>
       <Header />

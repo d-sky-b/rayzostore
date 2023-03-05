@@ -13,7 +13,7 @@ function Product({ product }) {
   return (
     <Card className="my-3 p-3 rounded">
       <Link to={`/product/${product._id}`}>
-        <Card.Img src={product.image} />
+        <Card.Img src={process.env.REACT_APP_API_URL+product.image} />
       </Link>
 
       <Card.Body>
@@ -31,7 +31,7 @@ function Product({ product }) {
           />
         </Card.Text>
 
-        <Card.Text as="h3">₹{product.price}</Card.Text>
+        <Card.Text as="h3">{product.price}DZ</Card.Text>
       </Card.Body>
     </Card>
   );

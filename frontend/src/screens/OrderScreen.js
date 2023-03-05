@@ -61,7 +61,7 @@ function OrderScreen({ history, match }) {
     const script = document.createElement("script");
     script.type = "text/javascript";
     script.src =
-      "https://www.paypal.com/sdk/js?client-id=AYgflmsaM7ccNLPlKUiufIyw8-spOE4UuS5XyyTCvhzheA-1EUcZF9qGlgXBZaSKcP5BY0zTc9WgINKe";
+      "https://www.paypal.com/sdk/js?client-id=AW-Zn0vh3KItXNJcjklqUFjp776hZwta_skfXePECCoEVWTCjsuPp3BBBqe1hKBPj_8NWwQH6pwzi3qR";
     script.async = true;
     script.onload = () => {
       setSdkReady(true);
@@ -190,8 +190,8 @@ function OrderScreen({ history, match }) {
                         </Col>
 
                         <Col md={4}>
-                          {item.qty} X ₹{item.price} = ₹
-                          {(item.qty * item.price).toFixed(2)}
+                          {item.qty} X {item.price}DZ = 
+                          {(item.qty * item.price).toFixed(2)}DZ
                         </Col>
                       </Row>
                     </ListGroup.Item>
@@ -213,7 +213,7 @@ function OrderScreen({ history, match }) {
                 <Row>
                   <Col>Items:</Col>
 
-                  <Col>₹{order.itemsPrice}</Col>
+                  <Col>{order.itemsPrice}DZ</Col>
                 </Row>
               </ListGroup.Item>
 
@@ -221,7 +221,7 @@ function OrderScreen({ history, match }) {
                 <Row>
                   <Col>Shipping:</Col>
 
-                  <Col>₹{order.shippingPrice}</Col>
+                  <Col>{order.shippingPrice}DZ</Col>
                 </Row>
               </ListGroup.Item>
 
@@ -229,7 +229,7 @@ function OrderScreen({ history, match }) {
                 <Row>
                   <Col>Tax:</Col>
 
-                  <Col>₹{order.taxPrice}</Col>
+                  <Col>{order.taxPrice}DZ</Col>
                 </Row>
               </ListGroup.Item>
 
@@ -237,7 +237,7 @@ function OrderScreen({ history, match }) {
                 <Row>
                   <Col>Total:</Col>
 
-                  <Col>₹{order.totalPrice}</Col>
+                  <Col>{order.totalPrice}DZ</Col>
                 </Row>
               </ListGroup.Item>
 

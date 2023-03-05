@@ -91,7 +91,7 @@ function ProductScreen({ match, history }) {
         <div>
           <Row>
             <Col md={6}>
-              <Image src={product.image} alt={product.name} fluid />
+              <Image src={process.env.REACT_APP_API_URL+product.image} alt={product.name} fluid />
             </Col>
 
             <Col md={3}>
@@ -108,7 +108,7 @@ function ProductScreen({ match, history }) {
                   />
                 </ListGroup.Item>
 
-                <ListGroup.Item>Price: ₹{product.price}</ListGroup.Item>
+                <ListGroup.Item>Price: {product.price}DZ</ListGroup.Item>
 
                 <ListGroup.Item>
                   Description: {product.description}
@@ -123,7 +123,7 @@ function ProductScreen({ match, history }) {
                     <Row>
                       <Col>Price:</Col>
                       <Col>
-                        <strong>₹{product.price}</strong>
+                        <strong>{product.price}DZ</strong>
                       </Col>
                     </Row>
                   </ListGroup.Item>

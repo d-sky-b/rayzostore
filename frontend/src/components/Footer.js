@@ -8,7 +8,7 @@ function Footer() {
     <footer>
       <Container>
         <Row>
-          <Col className="text-center py-3">Copyright &copy; <a href="https://www.dskyb.com" target="_blank" >dskyb</a></Col>
+          <Col className="text-center py-3">Copyright &copy; 2023 rayzostore . All rights reserved. Developed by <a href="https://www.dskyb.com" target="_blank" >dskyb</a></Col>
         </Row>
       </Container>
     </footer>

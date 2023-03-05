@@ -13,8 +13,6 @@ from pathlib import Path
 import os
 import environ
 
-
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -33,7 +31,11 @@ SECRET_KEY = env("SECRET_KEY")
 DEBUG = env("DEBUG")
 
 ALLOWED_HOSTS = ['localhost','127.0.0.1',env("HOST")]
-
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': "dpfenmhfx",
+    'API_KEY': "218494689618975",
+    'API_SECRET':"bqtRFR8fryFmUlLJr1ioAfE3Y_s"
+}
  
 # Application definition
 
@@ -44,7 +46,9 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'cloudinary_storage',
     'django.contrib.staticfiles',
+    'cloudinary',
     #local apps
     'base.apps.BaseConfig',
     #3rd party apps 
@@ -177,11 +181,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR ,"media")
-
 STATICFILES_DIRS = [
     BASE_DIR/'static',
     BASE_DIR/'frontend/build/static', 

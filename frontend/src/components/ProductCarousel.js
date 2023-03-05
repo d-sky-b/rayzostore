@@ -15,6 +15,7 @@ import Message from "./Message";
 
 /* ACTION TYPES */
 import { listTopProducts } from "../actions/productActions";
+import backgroundImage from "../index.jpg"
 
 function ProductCarousel() {
   const dispatch = useDispatch();
@@ -32,15 +33,15 @@ function ProductCarousel() {
   ) : error ? (
     <Message variant="danger">{error}</Message>
   ) : (
-    <Carousel pause="hover" className="bg-dark">
+    <Carousel pause="hover" className="bg-dark" style={{backgroundImage:`url(${backgroundImage})`,backgroundSize:"cover"}}>
       {products.map((product) => (
         <Carousel.Item key={product._id}>
           <Link to={`/product/${product._id}`}>
-            <Image src={product.image} alt={product.name} fluid />
+            <Image src={process.env.REACT_APP_API_URL+product.image} alt={product.name} fluid />
 
             <Carousel.Caption className="carousel.caption">
               <h4>
-                {product.name} (₹{product.price})
+                {product.name} ({product.price}DZ)
               </h4>
             </Carousel.Caption>
           </Link>

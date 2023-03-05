@@ -19,6 +19,54 @@ import { createOrder } from "../actions/orderActions";
 /* ACTION TYPES */
 import { ORDER_CREATE_RESET } from "../constants/orderConstants";
 
+const priceshipping={
+"Adrar":800,
+"Chlef":400,
+"Laghouat":600,
+"Oum El Bouaghi":350,
+"Béjaïa":400,
+"Biskra":350,
+"Béchar":800,
+"Blida":350,
+"Bouira":400,
+"Tamanrasset":1000,
+"Tébessa":600,
+"Tlemcen":350,
+"Tiaret":400,
+"Tizi Ouzou":400,
+"Alger":350,
+"Djelfa":600,
+"Jijel":400,
+"Sétif":350,
+"Saïda":400,
+"Skikda":400,
+"Sidi Bel Abbès":400,
+"Annaba":350,
+"Guelma":400,
+"Constantine":400,
+"Médéa":400,
+"Mostaganem":400,
+"M'Sila":350,
+"Mascara":400,
+"Ouargla":600,
+"Oran":350,
+"El Bayadh":600,
+"Illizi":1200,
+"Bordj Bou Arreridj":400,
+"Boumerdès":400,
+"El Tarf":400,
+"Tindouf":1000,
+"Tissemsilt":400,
+"El Oued":600,
+"Khenchela":350,
+"Souk Ahras":400,
+"Tipaza":350,
+"Mila":350,
+"Aïn Defla":400,
+"Naâma":800,
+"Aïn Témouchent":400,
+"Ghardaïa":600,
+"Relizane":400,}
 function PlaceOrderScreen({ history }) {
   const dispatch = useDispatch();
 
@@ -34,9 +82,9 @@ function PlaceOrderScreen({ history }) {
     .reduce((acc, item) => acc + item.price * item.qty, 0)
     .toFixed(2);
 
-  cart.shippingPrice = (cart.itemsPrice > 100 ? 0 : 10).toFixed(2);
+  cart.shippingPrice = (priceshipping[cart.shippingAddress.city.toUpperCase()] ? priceshipping[cart.shippingAddress.city.toUpperCase()]:700).toFixed(2);
 
-  cart.taxPrice = Number(0.082 * cart.itemsPrice).toFixed(2);
+  cart.taxPrice = Number(0.00 * cart.itemsPrice).toFixed(2);
 
   cart.totalPrice = (
     Number(cart.itemsPrice) +
@@ -116,7 +164,7 @@ function PlaceOrderScreen({ history }) {
                       <Row>
                         <Col md={1}>
                           <Image
-                            src={item.image}
+                            src={process.env.REACT_APP_API_URL+item.image}
                             alt={item.name}
                             fluid
                             rounded
@@ -130,8 +178,8 @@ function PlaceOrderScreen({ history }) {
                         </Col>
 
                         <Col md={4}>
-                          {item.qty} X ₹{item.price} = ₹
-                          {(item.qty * item.price).toFixed(2)}
+                          {item.qty} X {item.price} DZ= 
+                          {(item.qty * item.price).toFixed(2)}DZ
                         </Col>
                       </Row>
                     </ListGroup.Item>
@@ -153,7 +201,7 @@ function PlaceOrderScreen({ history }) {
                 <Row>
                   <Col>Items:</Col>
 
-                  <Col>₹{cart.itemsPrice}</Col>
+                  <Col>{cart.itemsPrice}DZ</Col>
                 </Row>
               </ListGroup.Item>
 
@@ -161,7 +209,7 @@ function PlaceOrderScreen({ history }) {
                 <Row>
                   <Col>Shipping:</Col>
 
-                  <Col>₹{cart.shippingPrice}</Col>
+                  <Col>{cart.shippingPrice}DZ</Col>
                 </Row>
               </ListGroup.Item>
 
@@ -169,7 +217,7 @@ function PlaceOrderScreen({ history }) {
                 <Row>
                   <Col>Tax:</Col>
 
-                  <Col>₹{cart.taxPrice}</Col>
+                  <Col>{cart.taxPrice}DZ</Col>
                 </Row>
               </ListGroup.Item>
 
@@ -177,7 +225,7 @@ function PlaceOrderScreen({ history }) {
                 <Row>
                   <Col>Total:</Col>
 
-                  <Col>₹{cart.totalPrice}</Col>
+                  <Col>{cart.totalPrice}DZ</Col>
                 </Row>
               </ListGroup.Item>
 
