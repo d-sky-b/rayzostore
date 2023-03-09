@@ -164,7 +164,7 @@ function PlaceOrderScreen({ history }) {
                       <Row>
                         <Col md={1}>
                           <Image
-                            src={process.env.REACT_APP_API_URL+item.image}
+                            src={item.image}
                             alt={item.name}
                             fluid
                             rounded

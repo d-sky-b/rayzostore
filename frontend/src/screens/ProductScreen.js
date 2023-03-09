@@ -91,7 +91,7 @@ function ProductScreen({ match, history }) {
         <div>
           <Row>
             <Col md={6}>
-              <Image src={process.env.REACT_APP_API_URL+product.image} alt={product.name} fluid />
+              <Image src={product.image} alt={product.name} fluid />
             </Col>
 
             <Col md={3}>

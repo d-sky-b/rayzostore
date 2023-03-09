@@ -34,7 +34,8 @@ ALLOWED_HOSTS = ['localhost','127.0.0.1',env("HOST")]
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': "dpfenmhfx",
     'API_KEY': "218494689618975",
-    'API_SECRET':"bqtRFR8fryFmUlLJr1ioAfE3Y_s"
+    'API_SECRET':"bqtRFR8fryFmUlLJr1ioAfE3Y_s",
+    "secure" : True
 }
  
 # Application definition
